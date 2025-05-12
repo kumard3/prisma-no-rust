@@ -19,4 +19,8 @@ export const productRouter = createTRPCRouter({
       });
       return product;
     }),
+  getProductCount: publicProcedure.query(async ({ ctx }) => {
+    const count = await ctx.db.product.count();
+    return count;
+  }),
 });
