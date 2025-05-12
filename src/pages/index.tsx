@@ -21,6 +21,13 @@ export default function Home({ products }: { products: Product[] }) {
   // Fetch product count from the client side
   const { data: productCount } = api.product.getProductCount.useQuery();
 
+  // Function to get a placeholder image URL
+  const getPlaceholderImage = (id: string) => {
+    // Use the last characters of the ID to get different images
+    const imageId = parseInt(id.slice(-2), 16) % 50;
+    return `https://prd.place/400?id=${imageId}`;
+  };
+
   return (
     <div className="container mx-auto py-10">
       <div className="mb-8 flex items-center justify-between">
@@ -35,18 +42,12 @@ export default function Home({ products }: { products: Product[] }) {
         {products.map((product) => (
           <Card key={product.id} className="overflow-hidden">
             <div className="relative h-48 w-full bg-gray-100">
-              {product.image ? (
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover"
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center bg-gray-200">
-                  <span className="text-gray-400">No image</span>
-                </div>
-              )}
+              <Image
+                src={product.image || getPlaceholderImage(product.id)}
+                alt={product.name}
+                fill
+                className="object-contain p-2"
+              />
             </div>
             <CardHeader>
               <CardTitle>{product.name}</CardTitle>

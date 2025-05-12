@@ -19,6 +19,13 @@ export default function SingleProductPage() {
     },
   );
 
+  // Function to get a placeholder image URL
+  const getPlaceholderImage = (productId: string) => {
+    // Use the last characters of the ID to get different images
+    const imageId = parseInt(productId.slice(-2), 16) % 50;
+    return `https://prd.place/600?id=${imageId}`;
+  };
+
   if (isLoading) {
     return (
       <div className="container mx-auto flex min-h-[50vh] items-center justify-center py-10">
@@ -47,18 +54,12 @@ export default function SingleProductPage() {
 
       <div className="mt-6 grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2">
         <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-gray-100">
-          {product.image ? (
-            <Image
-              src={product.image}
-              alt={product.name}
-              fill
-              className="object-cover"
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center bg-gray-200">
-              <span className="text-gray-400">No image available</span>
-            </div>
-          )}
+          <Image
+            src={product.image || getPlaceholderImage(product.id)}
+            alt={product.name}
+            fill
+            className="object-contain p-4"
+          />
         </div>
 
         <div>

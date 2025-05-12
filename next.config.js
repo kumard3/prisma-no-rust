@@ -21,6 +21,8 @@ const config = {
     remotePatterns: [
       {
         hostname: "source.unsplash.com",
+      }, {
+        hostname: "prd.place",
       },
     ],
   },

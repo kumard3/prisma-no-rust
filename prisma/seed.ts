@@ -20,12 +20,18 @@ async function main() {
   // Generate between 30-40 products
   const productCount = faker.number.int({ min: 30, max: 40 });
 
-  const products = Array.from({ length: productCount }).map(() => ({
-    name: faker.commerce.productName(),
-    price: faker.number.int({ min: 500, max: 10000 }), // Price in cents (5-100 dollars)
-    description: faker.commerce.productDescription(),
-    image: `https://source.unsplash.com/random/300x300?product=${faker.commerce.product().toLowerCase()}`,
-  }));
+  const products = Array.from({ length: productCount }).map((_, index) => {
+    // Use a different image ID for each product
+    const imageId = (index % 50) + 1;
+
+    return {
+      name: faker.commerce.productName(),
+      price: faker.number.int({ min: 500, max: 10000 }), // Price in cents (5-100 dollars)
+      description: faker.commerce.productDescription(),
+      // Use productplaceholder.com for product images
+      image: `https://prd.place/400?id=${imageId}`,
+    };
+  });
 
   // Create products one by one instead of using transaction to avoid type issues
   const createdProducts = [];
