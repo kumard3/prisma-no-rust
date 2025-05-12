@@ -27,7 +27,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@client/prisma-client": ["./generated/prisma-client/*"]
+      // "@client/prisma-client": ["./generated/prisma-client/*"]
     }
   },
   "include": [
@@ -36,8 +36,8 @@
     "**/*.ts",
     "**/*.tsx",
     // https://github.com/prisma/prisma/issues/26946#issuecomment-2823436853
-    // "**/*.cjs",
-    // "**/*.js",
+    "**/*.cjs",
+    "**/*.js",
     ".next/types/**/*.ts",
   ],
   "exclude": ["node_modules"]
