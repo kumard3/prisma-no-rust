@@ -3,6 +3,7 @@
  * for Docker builds.
  */
 import "./src/env.js";
+import path from 'path';
 
 /** @type {import("next").NextConfig} */
 const config = {
@@ -27,6 +28,15 @@ const config = {
     ],
   },
   transpilePackages: ["geist"],
+
+  // Add this webpack configuration for Prisma
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      // Copy Prisma engine files to the output directory
+      config.externals = [...config.externals, 'prisma/generated/client'];
+    }
+    return config;
+  },
 };
 
 export default config;

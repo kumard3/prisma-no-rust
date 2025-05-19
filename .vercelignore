@@ -1,0 +1,9 @@
+# Keep these files for Prisma
+!generated/prisma
+!node_modules/.prisma
+!node_modules/@prisma
+
+# Ignore development files
+.env.development.local
+.env.local
+.env.test.local 
