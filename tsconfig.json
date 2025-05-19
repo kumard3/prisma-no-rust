@@ -8,7 +8,7 @@
     "resolveJsonModule": true,
     "moduleDetection": "force",
     "isolatedModules": true,
-
+    // "types": ["./prisma/generated/prisma-client/"],
     /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,
@@ -27,7 +27,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      // "@client/prisma-client": ["./generated/prisma-client/*"]
+      // "@client/prisma-client": ["./prisma/generated/prisma-client"],
+      // "@/generated/prisma-client": ["./prisma/generated/prisma-client"]
     }
   },
   "include": [
@@ -35,10 +36,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    // https://github.com/prisma/prisma/issues/26946#issuecomment-2823436853
     "**/*.cjs",
     "**/*.js",
     ".next/types/**/*.ts",
+    // ".prisma/generated/prisma-client**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

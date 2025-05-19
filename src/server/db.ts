@@ -1,4 +1,4 @@
-// import { PrismaClient } from "@client/prisma-client";
+// import { PrismaClient } from "generated/prisma";
 
 // import { env } from "@/env";
 
@@ -18,8 +18,10 @@
 // if (env.NODE_ENV !== "production") globalForPrisma.prisma = db;
 
 import { PrismaPg } from "@prisma/adapter-pg";
-import { PrismaClient } from "@client/prisma-client";
+// import { PrismaClient } from "generated/prisma";
 import { env } from "@/env";
+import { PrismaClient } from "generated/prisma";
+// import { PrismaClient } from "generated/prisma";
 
 const adapter = new PrismaPg({ connectionString: env.DATABASE_URL });
 export const db = new PrismaClient({
