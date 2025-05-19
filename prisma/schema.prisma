@@ -4,7 +4,7 @@ generator client {
     output          = "../generated/prisma"
     // binaryTargets   = "native"
     engineType      = "library"
-    binaryTargets   = ["native", "rhel-openssl-3.0.x"]
+    binaryTargets   = ["native", "linux-arm64-openssl-3.0.x"]
 }
 
 datasource db {
