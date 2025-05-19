@@ -4,6 +4,7 @@
  */
 import "./src/env.js";
 import path from 'path';
+import fs from 'fs';
 
 /** @type {import("next").NextConfig} */
 const config = {
@@ -29,12 +30,27 @@ const config = {
   },
   transpilePackages: ["geist"],
 
-  // Add this webpack configuration for Prisma
-  webpack: (config, { isServer }) => {
+  // Enhanced webpack configuration for Prisma
+  webpack: (config, { isServer, webpack }) => {
     if (isServer) {
-      // Copy Prisma engine files to the output directory
-      config.externals = [...config.externals, 'prisma/generated/client'];
+      // Prevent server-side bundle from including node_modules packages unnecessarily
+      config.externals = ['@prisma/client/runtime', ...config.externals];
+
+      // Add a rule to handle Prisma engine binaries
+      config.module.rules.push({
+        test: /\.node$/,
+        use: [{ loader: 'file-loader', options: { name: '[name].[ext]' } }],
+      });
+
+      // Copy Prisma engines to output directory
+      const engineSourcePath = path.join(process.cwd(), 'generated/prisma/libquery_engine-rhel-openssl-3.0.x.so.node');
+      if (fs.existsSync(engineSourcePath)) {
+        console.log('Prisma engine file exists at:', engineSourcePath);
+      } else {
+        console.log('Prisma engine file NOT found at:', engineSourcePath);
+      }
     }
+
     return config;
   },
 };
