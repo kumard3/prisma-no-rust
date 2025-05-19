@@ -16,7 +16,6 @@ import {
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { type Product as PrismaProduct } from "generated/prisma";
 
 const getPlaceholderImage = (id: string) => {
   // Use the last characters of the ID to get different images
