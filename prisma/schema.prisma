@@ -2,7 +2,7 @@ generator client {
     provider        = "prisma-client"
     previewFeatures = ["queryCompiler", "driverAdapters"]
     output          = "../generated/prisma"
-    engineType      = "binary"
+    engineType      = "library"
     binaryTargets   = ["native", "rhel-openssl-3.0.x", "debian-openssl-3.0.x"]
 }
 
