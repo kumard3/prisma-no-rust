@@ -39,7 +39,11 @@
     "**/*.cjs",
     "**/*.js",
     ".next/types/**/*.ts",
-    // ".prisma/generated/prisma-client**/*.ts"
+    ".generated/prisma/**/*.js",
+    ".generated/prisma/**/*.ts",
+    ".generated/prisma/**.dylib.node",
+    ".generated/prisma/**.node",
+    ".generated/prisma/libquery_engine-rhel-openssl-3.0.x.so.node",
   ],
   "exclude": ["node_modules"]
 }
