@@ -12,7 +12,7 @@
     /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,
-    "checkJs": true,
+    "checkJs": false,
 
     /* Bundled projects */
     "lib": ["dom", "dom.iterable", "ES2022"],
@@ -35,13 +35,13 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.cjs",
-    "**/*.js",
+    // "**/*.cjs",
+    // "**/*.js",
     ".next/types/**/*.ts",
     "./generated/prisma/**/*.js",
     "./generated/prisma/**/*.ts",
     "./generated/prisma/**/*.node",
     "./generated/prisma/libquery_engine-rhel-openssl-3.0.x.so.node"
   ],
-  "exclude": ["node_modules", "generated/prisma"]
+  "exclude": ["node_modules", ]
 }
