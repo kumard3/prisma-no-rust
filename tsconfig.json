@@ -43,5 +43,5 @@
     "./generated/prisma/**/*.node",
     "./generated/prisma/libquery_engine-rhel-openssl-3.0.x.so.node"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "generated/prisma"]
 }
