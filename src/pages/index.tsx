@@ -1,9 +1,5 @@
 import { api } from "@/utils/api";
-import { type GetStaticProps } from "next";
-import { createServerSideHelpers } from "@trpc/react-query/server";
-import { appRouter } from "@/server/api/root";
-import { db } from "@/server/db";
-import superjson from "superjson";
+
 // import type { Product } from "generated/prisma";
 import Link from "next/link";
 import {
