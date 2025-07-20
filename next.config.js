@@ -6,7 +6,9 @@ await import("./src/env.js");
 
 const config = {
   reactStrictMode: true,
-
+  outputFileTracingIncludes: {
+    "/**/*": ["./prisma/generated/prisma/**/*"],
+  },
 };
 
 export default config;
