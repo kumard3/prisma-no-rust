@@ -176,7 +176,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/kumardeepanshu/codes/prisma-update-test/public/generated/prisma",
+      "value": "/Users/kumardeepanshu/codes/prisma-update-test/prisma/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -200,7 +200,7 @@ const config = {
     "rootEnvPath": "../../../.env",
     "schemaEnvPath": "../../../.env"
   },
-  "relativePath": "../../../prisma",
+  "relativePath": "../..",
   "clientVersion": "6.12.0",
   "engineVersion": "8047c96bbd92db98a2abc7c9323ce77c02c89dbc",
   "datasourceNames": [
@@ -216,8 +216,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider        = \"prisma-client-js\"\n  previewFeatures = [\"queryCompiler\", \"driverAdapters\"]\n  output          = \"../public/generated/prisma\"\n  // binaryTargets   = [\"native\", \"rhel-openssl-3.0.x\"]\n  // engineType      = \"client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Account {\n  id                       String  @id @default(cuid())\n  userId                   String\n  type                     String\n  provider                 String\n  providerAccountId        String\n  refresh_token            String?\n  access_token             String?\n  expires_at               Int?\n  token_type               String?\n  scope                    String?\n  id_token                 String?\n  session_state            String?\n  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)\n  refresh_token_expires_in Int?\n\n  @@unique([provider, providerAccountId])\n}\n\nmodel Session {\n  id           String   @id @default(cuid())\n  sessionToken String   @unique\n  userId       String\n  expires      DateTime\n  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel VerificationToken {\n  identifier String\n  token      String   @unique\n  expires    DateTime\n\n  @@unique([identifier, token])\n}\n\nmodel User {\n  id        String    @id @default(cuid())\n  name      String?\n  email     String?   @unique\n  password  String?\n  image     String?\n  role      String    @default(\"USER\")\n  accounts  Account[]\n  sessions  Session[]\n  createdAt DateTime  @default(now())\n  updatedAt DateTime  @updatedAt\n\n  @@index([email])\n  @@index([id])\n}\n\nmodel Product {\n  id          String   @id @default(cuid())\n  name        String\n  price       Int\n  description String?\n  image       String?\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n}\n",
-  "inlineSchemaHash": "aca8e025b4258574b9e109d728009e2d17561c1c37189045f8660c59f2ec7b7a",
+  "inlineSchema": "generator client {\n  provider        = \"prisma-client-js\"\n  previewFeatures = [\"queryCompiler\", \"driverAdapters\"]\n  output          = \"./generated/prisma\"\n  // binaryTargets   = [\"native\", \"rhel-openssl-3.0.x\"]\n  // engineType      = \"client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Account {\n  id                       String  @id @default(cuid())\n  userId                   String\n  type                     String\n  provider                 String\n  providerAccountId        String\n  refresh_token            String?\n  access_token             String?\n  expires_at               Int?\n  token_type               String?\n  scope                    String?\n  id_token                 String?\n  session_state            String?\n  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)\n  refresh_token_expires_in Int?\n\n  @@unique([provider, providerAccountId])\n}\n\nmodel Session {\n  id           String   @id @default(cuid())\n  sessionToken String   @unique\n  userId       String\n  expires      DateTime\n  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel VerificationToken {\n  identifier String\n  token      String   @unique\n  expires    DateTime\n\n  @@unique([identifier, token])\n}\n\nmodel User {\n  id        String    @id @default(cuid())\n  name      String?\n  email     String?   @unique\n  password  String?\n  image     String?\n  role      String    @default(\"USER\")\n  accounts  Account[]\n  sessions  Session[]\n  createdAt DateTime  @default(now())\n  updatedAt DateTime  @updatedAt\n\n  @@index([email])\n  @@index([id])\n}\n\nmodel Product {\n  id          String   @id @default(cuid())\n  name        String\n  price       Int\n  description String?\n  image       String?\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n}\n",
+  "inlineSchemaHash": "b64117aa4e5024747154ce6d4e3eb0c15eb3886b55c7542afc19436e87c525e5",
   "copyEngine": true
 }
 config.dirname = '/'
