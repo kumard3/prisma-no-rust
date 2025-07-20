@@ -27,7 +27,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@/generated/prisma": ["./generated/prisma/client"]
+      "@/generated/prisma": ["./generated/prisma"]
     }
   },
   "include": [
@@ -42,7 +42,7 @@
     // "./generated/prisma/**/*.ts",
     // "./generated/prisma/**/*.node",
     // "./generated/prisma/libquery_engine-rhel-openssl-3.0.x.so.node",
-    // "./generated/prisma/query_compiler_bg.wasm"
+    "./generated/prisma/query_compiler_bg.wasm"
   ],
   "exclude": ["node_modules"]
 }

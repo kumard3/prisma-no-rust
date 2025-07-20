@@ -20,7 +20,7 @@
 import { PrismaPg } from "@prisma/adapter-pg";
 // import { PrismaClient } from "generated/prisma";
 import { env } from "@/env";
-import { PrismaClient } from "generated/prisma/client";
+import { PrismaClient } from "../../prisma/generated/prisma";
 // import { PrismaClient } from "";
 // import { PrismaClient } from "generated/prisma";
 
