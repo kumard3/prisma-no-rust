@@ -35,13 +35,14 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    // "**/*.cjs",
-    // "**/*.js",
+    "**/*.cjs",
+    "**/*.js",
     ".next/types/**/*.ts",
-    "./generated/prisma/**/*.js",
-    "./generated/prisma/**/*.ts",
-    "./generated/prisma/**/*.node",
-    "./generated/prisma/libquery_engine-rhel-openssl-3.0.x.so.node"
+    // "./generated/prisma/**/*.js",
+    // "./generated/prisma/**/*.ts",
+    // "./generated/prisma/**/*.node",
+    // "./generated/prisma/libquery_engine-rhel-openssl-3.0.x.so.node",
+    // "./generated/prisma/query_compiler_bg.wasm"
   ],
-  "exclude": ["node_modules", ]
+  "exclude": ["node_modules"]
 }

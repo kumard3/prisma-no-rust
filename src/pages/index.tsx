@@ -40,11 +40,13 @@ export default function Home() {
         {products?.map((product) => (
           <Card key={product.id} className="overflow-hidden">
             <div className="relative h-48 w-full bg-gray-100">
-              <Image
+              <img
                 src={product.image || getPlaceholderImage(product.id)}
                 alt={product.name}
-                fill
                 className="object-contain p-2"
+                width={400}
+                height={400}
+                loading="lazy"
               />
             </div>
             <CardHeader>

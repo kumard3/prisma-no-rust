@@ -25,7 +25,9 @@ import { PrismaClient } from "generated/prisma/client";
 // import { PrismaClient } from "generated/prisma";
 
 const adapter = new PrismaPg({ connectionString: env.DATABASE_URL });
-export const db = new PrismaClient({
-  adapter,
-  log: ["query", "error", "warn"],
-});
+// export const db = new PrismaClient({
+//   adapter,
+//   log: ["query", "error", "warn"],
+// });
+
+export const db = new PrismaClient();

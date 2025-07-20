@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -54,10 +53,9 @@ export default function SingleProductPage() {
 
       <div className="mt-6 grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2">
         <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-gray-100">
-          <Image
+          <img
             src={product.image || getPlaceholderImage(product.id)}
             alt={product.name}
-            fill
             className="object-contain p-4"
           />
         </div>

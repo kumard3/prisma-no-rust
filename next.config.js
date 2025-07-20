@@ -6,6 +6,7 @@ await import("./src/env.js");
 
 const config = {
   reactStrictMode: true,
+
 };
 
 export default config;
